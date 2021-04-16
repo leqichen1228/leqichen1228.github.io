@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eyeglasses</title>
+<style type="text/css">
+	* {box-sizing: border-box}
+		body{
+			background-color: black;
+		}
+
+		img{
+			width: 100%;
+		}
+
+		div{
+			position: absolute;
+			top:0vw;
+			left:0vw;
+			width:100vw;
+			height: auto;
+		}
+
+		#back{
+			position: fixed;
+			top:1vw;
+			left:1vw;
+			width:3vw;
+			height: auto;
+		}
+
+		#arrow{
+			width:100%;
+		}
+
+		p{
+			font-family: "Arial Light";
+			font-size: 1vw;
+			color:white;
+			font-weight: 30;
+			letter-spacing: 0.1vw;
+		}		
+
+		#title{
+			position: absolute;
+			top:1.5vw;
+			left:0;
+			width: 100%;
+			height:4vw;
+		}
+
+		h3{
+			text-align: center;
+			font-family: "Arial Light";
+			font-size: 1.3vw;
+			color:white;
+			font-weight: 30;
+			letter-spacing: 0.1vw;
+		}
+
+		
+		.zoom {
+		  padding: 0;
+		  transition: transform .2s; /* Animation */
+		  margin: 0 auto;
+		  position: absolute;
+		}
+
+		.zoom:hover {
+		  z-index: 9999; 
+		  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+		}
+
+		#img1 {
+			position: absolute;
+			top:6vw;
+		  	left:8vw;
+		    width: 15vw;
+		    height: 18vw;
+		    background-color: none;
+		}
+
+		#img2 {
+			position: absolute;
+			top:30vw;
+		  	left:12vw;
+		    width: 15vw;
+		    height: 12vw;
+		    background-color: none;
+		}
+
+		#img3 {
+			position: absolute;
+			top:42vw;
+		  	left:6vw;
+		    width: 15vw;
+		    height: 18vw;
+		    background-color: none;
+		}
+
+		#img4 {
+			position: absolute;
+			top:8vw;
+		  	left:36vw;
+		    width: 15vw;
+		    height: 12vw;
+		    background-color: none;
+		}
+
+		#img5 {
+			position: absolute;
+			top:23vw;
+		  	left:29vw;
+		    width: 15vw;
+		    height: 18vw;
+		    background-color: none;
+		}
+
+		#img6 {
+			position: absolute;
+			top:83vw;
+		  	left:22vw;
+		    width: 20vw;
+		    height: 20vw;
+		    background-color: none;
+		}
+
+		#img7{
+			position: absolute;
+			top:20vw;
+		  	left:47vw;
+		    width: 15vw;
+		    height: 18vw;
+		    background-color: none;
+		}
+
+
+		#img8 {
+			position: absolute;
+			top:5vw;
+		  	left:64vw;
+		    width: 12vw;
+		    height: 15vw;
+		    background-color: none;
+		}
+
+		#img9 {
+			position: absolute;
+			top:28vw;
+		  	left:68.5vw;
+		    width: 24vw;
+		    height: 28vw;
+		    background-color: none;
+		}
+
+		#img10 {
+			position: absolute;
+			top:13vw;
+		  	left:78vw;
+		    width: 18vw;
+		    height: 15vw;
+		    background-color: none;
+		}
+		
+
+		#img12 {
+			position: absolute;
+			top:64vw;
+		  	left:4vw;
+		    width: 18vw;
+		    height: 15vw;
+		    background-color: none;
+		}
+
+		#img14 {
+			position: absolute;
+			top:63vw;
+		  	left:75vw;
+		    width: 12vw;
+		    height: 15vw;
+		    background-color: none;
+		}
+
+		#img15 {
+			position: absolute;
+			top:48vw;
+		  	left:27vw;
+		    width: 24vw;
+		    height: 20vw;
+		    background-color: none;
+		}
+
+		#img16 {
+			position: absolute;
+			top:81vw;
+		  	left:46vw;
+		    width: 12vw;
+		    height: 15vw;
+		    background-color: none;
+		}
+
+		#img17 {
+			position: absolute;
+			top:46vw;
+		  	left:54vw;
+		    width: 12vw;
+		    height: 15vw;
+		    background-color: none;
+		}
+
+		#img18 {
+			position: absolute;
+			top:65vw;
+		  	left:53vw;
+		    width: 15vw;
+		    height: 12vw;
+		    background-color: none;
+		}
+
+		#img19 {
+			position: absolute;
+			top:78vw;
+		  	left:8vw;
+		    width: 12vw;
+		    height: 15vw;
+		    background-color: none;
+		}
+
+		#img20 {
+			position: absolute;
+			top:84vw;
+		  	left:66vw;
+		    width: 24vw;
+		    height: 20vw;
+		    background-color: none;
+		}
+
+
+		#number_1{
+			position: absolute;
+			top:22.5vw;
+			left:6vw;
+		}
+
+		#number_2{
+			position: absolute;
+			top:16vw;
+			left:34vw;
+		}
+
+		#number_3{
+			position: absolute;
+			top:37vw;
+			left:10vw;
+		}
+
+		#number_4{
+			position: absolute;
+			top:42vw;
+			left:27vw;
+		}
+
+		#number_5{
+			position: absolute;
+			top:38vw;
+			left:46vw;
+		}
+
+		#number_6{
+			position: absolute;
+			top:5vw;
+			left:62vw;
+		}
+
+		#number_7{
+			position: absolute;
+			top:9.5vw;
+			left:94vw;
+		}
+
+		#number_8{
+			position: absolute;
+			top:28vw;
+			left:66.6vw;
+		}
+
+		#number_9{
+			position: absolute;
+			top:46vw;
+			left:67vw;
+		}
+
+		#number_10{
+			position: absolute;
+			top:48vw;
+			left:24.5vw;
+		}
+
+		#number_11{
+			position: absolute;
+			top:42vw;
+			left:4vw;
+		}
+
+		#number_12{
+			position: absolute;
+			top:64vw;
+			left:2vw;
+		}
+
+		#number_13{
+			position: absolute;
+			top:93vw;
+			left:5.5vw;
+		}
+
+		#number_14{
+			position: absolute;
+			top:79.5vw;
+			left:23vw;
+		}
+
+		#number_15{
+			position: absolute;
+			top:81vw;
+			left:59.5vw;
+		}
+
+		#number_15{
+			position: absolute;
+			top:65vw;
+			left:69vw;
+		}
+
+		#number_16{
+			position: absolute;
+			top:63vw;
+			left:88vw;
+		}
+
+		#number_17{
+			position: absolute;
+			top:81vw;
+			left:59.5vw;
+		}
+
+		#number_18{
+			position: absolute;
+			top:84vw;
+			left:91vw;
+		}
+
+
+		.modules{
+			display: block;
+			width: 100%;
+			margin:0;
+			padding: 0;
+		}
+
+		#single_object{
+			position: absolute;
+			top:8vw;
+			width: 100%;
+			margin:0;
+			padding: 0;
+		}
+
+		#image{
+			position: absolute;
+			width: 30%;
+			left:10vw;
+			top:5vw;
+		}
+
+		#number{
+			position: absolute;
+			top:5vw;
+			left: 8vw;
+		}
+
+		#info{
+			position: absolute;
+			width: 45%;
+			top:6vw;
+			left:45vw;
+		}
+
+		.words{
+			font-family:"Helvetica";
+			font-size:;
+			letter-spacing: 0.05vw;
+		}
+
+		#underline{
+			text-decoration: underline;
+			padding-top: 2vw;
+		}
+
+		#all_objects{
+			position: absolute;
+			top:50vw;
+			right:0;
+			width: 100vw;
+			margin:0;
+			padding: 0;
+		}
+
+
+		#build{
+			position: fixed;
+			text-align: center;
+			z-index: 9999; 
+			top: 2vw;
+			left: 81vw;
+			width: 16vw;
+			height: 3.7vw;
+			border-radius: 3vw;
+			background-color: none;
+			border-style: solid;
+			border-width: 0.2vw;
+			text-align: center;
+			color:white;
+			padding:0;
+		}
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<div id="title"><h3>Eyeglasses / Antiques of the Present</h3></div>
+
+<div class="modules" id="single_object">
+	<div>
+		<img id="image" src="photos/eyeglasses.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/>
+	</div>
+	<div id="number">
+		<p>12</p>
+	</div>
+</div>
+
+<div id="info">
+	<p class="words" id="underline">Synonyms</p>
+	<p class="words">Glasses; spectacles</p>
+	<p class="words"> </p>
+	<p class="words"> </p>
+	<p class="words" id="underline">Definition</p>
+	<p class="words">Vision eyewear, consisting of glass or hard plastic lenses mounted in a frame that holds them in front of a person's eyes, typically utilizing a bridge over the nose and hinged arms (known as temples or temple pieces) which rest over the ears.</p>
+	<p class="words"> </p>
+	<p class="words"> </p>
+	<p class="words" id="underline">Invention</p>
+	<p class="words">1268 A.D. by Roger Bacon, United Kingdom </p>
+	<p class="words"> </p>
+	<p class="words"> </p>
+	<p class="words" id="underline">Obsolescence</p>
+	<p class="words">2029 A.D. - 2033 A.D.</p>
+	<p class="words"> </p>
+	<p class="words"> </p>
+	<p class="words" id="underline">Types</p>
+	<p class="words">Corrective; safety; sunglasses; mixed doubleframe; 3D glasses; magnification(bioptics); yellow-tinted computer/gaming glasses; blue-light blocking glasses; Anti-glare protection glasses</p>
+</div>
+
+<div class="modules" id="all_objects">
+	<a href="calculator.html"><div class="zoom" id="img1"><img src="photos/calculator.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="earphone.html"><div class="zoom" id="img2"><img src="photos/earphone.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="tape.html"><div class="zoom" id="img3"><img src="photos/tape.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="cash.html"><div class="zoom" id="img4"><img src="photos/cash.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="toothbrush.html"><div class="zoom" id="img5"><img src="photos/toothbrush.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="clock.html"><div class="zoom" id="img6"><img src="photos/clock.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="mouse.html"><div class="zoom" id="img7"><img src="photos/mouse.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="key.html"><div class="zoom" id="img8"><img src="photos/key.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div>
+	<a href="telephone.html"><div class="zoom" id="img9"><img src="photos/telephone.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="raffle.html"><div class="zoom" id="img10"><img src="photos/ticket.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="eyeglasses.html"><div class="zoom" id="img12"><img src="photos/eyeglasses.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="remote.html"><div class="zoom" id="img14"><img src="photos/remote.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="headphone.html"><div class="zoom" id="img15"><img src="photos/headphone.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="USB.html"><div class="zoom" id="img16"><img src="photos/USB.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="battery.html"><div class="zoom" id="img17"><img src="photos/battery.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="metro.html"><div class="zoom" id="img18"><img src="photos/metro.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="carkey.html"><div class="zoom" id="img19"><img src="photos/carkey.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+	<a href="hanger.html"><div class="zoom" id="img20"><img src="photos/hanger.png" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')"><audio id='mySound' src='plastic_sound.mp3'/></div></a>
+
+	<p id="number_1">1</p>
+	<p id="number_2">2</p>
+	<p id="number_3">3</p>
+	<p id="number_4">4</p>
+	<p id="number_5">5</p>
+	<p id="number_6">6</p>
+	<p id="number_7">7</p>
+	<p id="number_8">8</p>
+	<p id="number_9">9</p>
+	<p id="number_10">10</p>
+	<p id="number_11">11</p>
+	<p id="number_12">12</p>
+	<p id="number_13">13</p>
+	<p id="number_14">14</p>
+	<p id="number_15">15</p>
+	<p id="number_16">16</p>
+	<p id="number_17">17</p>
+	<p id="number_18">18</p>
+		
+</div>
+
+<a href="second_page.html"><div id="build"><p>Build your own archive</p></div></a>
+
+<div id="back">
+	<a href="index.html"><img id="arrow" src="home.png" alt=""></a>
+</div>
+
+<script type="text/javascript">
+	function PlaySound(soundobj) {
+    var thissound=document.getElementById(soundobj);
+    thissound.play();
+	}
+
+	function StopSound(soundobj) {
+    var thissound=document.getElementById(soundobj);
+    thissound.pause();
+    thissound.currentTime = 0;
+	}
+</script>
+
+</body>
+</html>
