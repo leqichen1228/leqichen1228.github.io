@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-<meta charset=utf-8 />
-<title>Build your own archive</title>
+	<title></title>
+	<style>
+	body{
+	  font-family: Arial;
+	}
 
-<style>
-	* {box-sizing: border-box}
-    body {
-    background-color: black;
-    font-family: "Arial";
-    color:white;
-    font-size: 12pt;
-    margin-top: 3vw;
-    margin-left: 2vw;
-    }
+	#fileUpload{
+	  display: none; /* do not display the actual file upload button */
+	}
 
-  article, aside, figure, footer, header, hgroup, 
-  menu, nav, section { display: block; }
+	#customButton{  /* style the dummy upload button */
+	  background: yellow;
+	  border: 1px solid red;
+	  border-radius: 5px;
+	  padding: 5px;
+	  display: inline-block;
+	  cursor: pointer;
+	  color: red;
+	}
 
-  input{
-  	position: absolute;
-  	text-align: center;
-	font-family: "Arial Light";
-	font-size: 1.3vw;
-	color:white;
-	font-weight: 30;
-	letter-spacing: 0.1vw;
-  }
-
-  #blah{
+	#blah{
   	width: 20vw;
   	height: auto;
   	position: absolute;
@@ -39,213 +29,39 @@
   	top:15vw;
   	}
 
-  	#upload{
-  	position: absolute;
-	text-align: center;
-    width: 20vw;
-    left:5vw;
-    top:5vw;
-    height: 3vw;
-    background-color: none;
-    border-radius: 10vw;
-    position:relative;
-  	}
-
-  	input[type='file'] {
-  	position: absolute;
-	text-align: center;
-	width: 20vw;
-    left:20vw;
-    height:3vw;   
-    opacity:0;
-	}
-
-	#val {
-	    width: 20vw;
-	    height:3vw;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    font-size:1vw;
-	    line-height: 3vw;
-	    text-indent: 0;
-	    pointer-events: none;
-	    opacity:0;
-	}
-
-	#button {
-	    cursor: pointer;
-	    display: block;
-	    width: 10vw;
-	    background-color: white;
-	    height:3vw;
-	    color: black;
-	    font-family: "Arial Black";
-	    position: absolute;
-	    right:0;
-	    top: 0;
-	    font-size: 1vw;
-	    line-height:3vw;
-	    text-align: center;
-	    -webkit-transition: 500ms all;
-	    -moz-transition: 500ms all;
-	    transition: 500ms all;
-	    border-radius:10vw;
-	}
-
-	#button:hover {
-	    background-color: blue;
-	    color:white;
-	}
-
-  	#title{
-		position: absolute;
-		text-align: center;
-		width: 100vw;
-		top:1.5vw;
-		width: 100%;
-		height:4vw;
-	}
-
-	#back{
-		position: fixed;
-		top:1vw;
-		left:1vw;
-		width:3vw;
-		height: auto;
-		}
-
-	#arrow{
-		width:100%;
-		}
-
-	p{
-		font-family: "Arial Light";
-		font-size: 1vw;
-		color:white;
-		font-weight: 30;
-		letter-spacing: 0.1vw;
-		padding-bottom:3.6vw;
-		}
-
-	#all_input{
-		position: absolute;
-		top:15vw;
-		left:45vw;
-		display: inline-block;
-		width:50vw;
-		height:50vw;
-	}
-
-	#labels{
-		position: absolute;
-		left:0%;
-		top:0%;
-		width: 20%;
-		display: block;
-		line-height: 0vw;
-		vertical-align: top;
-		font-family: "Arial Light";
-		font-size: 1vw;
-		letter-spacing: 0;
-	}	
-
-	form{
-		position: absolute;
-		width: 65%;
-		height:100%;
-		left:30%;
-		top:0%;
-		margin:0;
-	}
-
-	.user_input{
-		color:black;
-		text-align: left;
-		top:0%;
-		width: 100%;
-		font-family: "Arial Light";
-		font-size: 1vw;
-		letter-spacing: 0;
-	}
-
-	#Description_input{
-		padding-bottom:6vw;
-	}
-
-
-
-	#submit{
-		position: absolute;
-		top:35vw;
-		left:45vw;
-		background-color: white;
-		color:black;
-		font-family: "Arial Black";
-		font-size: 1vw;
-		font-weight: 200;
-		text-decoration: none;
-		letter-spacing: 0;
-	}
-
-
-</style>
+	</style>
 </head>
 <body>
-
-<div id="back">
-	<a href="index.html"><img id="arrow" src="home.png" alt=""></a>
-</div>
-
-<div id="upload">
-    <input type='file' onchange="readURL(this);" /> <span id='val'></span>
- <span id='button'>Select File</span>
-</div>
-
+<input type="file" id="fileUpload"> <!-- actual file upload button -->
+<div id="customButton">Browse</div>  <!-- dummy file upload button which can be used for styling ;) -->
+<span id="fileName"></span> <!-- the file name of the selected file will be shown here -->
 <img id="blah" src="#" alt="your image" />
 
-<div id="all_input">
-
-	<div id="labels">
-		<p>Object Title:</p>
-		<p>Notes:</p>
-		<p>Description:</p>
-	</div>
-
-	<form>
-	  <textarea type="text" class="user_input" id="object_name" name="object_name"></textarea><br><br>
-	  <textarea type="text" class="user_input" id="Notes" name="Notes"></textarea><br><br> 
-	  <textarea type="text" class="user_input" id="Description_input" name="Description"  wrap="hard"></textarea><br><br>
-	</form>
-
-</div>
-
-<a href="third_page.html"><input type="submit" value="Submit" id="submit" ></a>
-
 <script type="text/javascript">
+document.getElementById("customButton").addEventListener("click", function(){
+  document.getElementById("fileUpload").click();  // trigger the click of actual file upload button
+});
 
-$('#button').click(function () {
-    $("input[type='file']").trigger('click');
-})
+document.getElementById("fileUpload").addEventListener("change", function(){
+  var fullPath = document.getElementById('fileUpload').value;
+  var fileName = fullPath.split(/(\\|\/)/g).pop();  // fetch the file name
+  document.getElementById("fileName").innerHTML = fileName;  // display the file name
+}, false);
+</script>
 
-$("input[type='file']").change(function () {
-    $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
-})
+<script class="jsbin" type="text/javascript">
+window.addEventListener('load', function() {
+  document.querySelector('input[type="file"]').addEventListener('change', function() {
+      if (this.files && this.files[0]) {
+          var img = document.querySelector('img');
+          img.onload = () => {
+              URL.revokeObjectURL(img.src);  // no longer needed, free memory
+          }
 
-function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result)
-                    .width()
-                    .height();
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
+          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+      }
+  });
+});
 </script>
 </body>
 </html>
