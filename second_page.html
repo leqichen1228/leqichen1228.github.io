@@ -3,8 +3,20 @@
 <head>
 	<title></title>
 	<style>
-	body{
-	  font-family: Arial;
+	 * {box-sizing: border-box}
+    body {
+    background-color: black;
+    font-family: "Arial";
+    color:white;
+    font-size: 12pt;
+    margin-top: 3vw;
+    margin-left: 2vw;
+    }
+
+	#button{
+		position: absolute;
+		left:16vw;
+		top:8vw;
 	}
 
 	#fileUpload{
@@ -12,30 +24,176 @@
 	}
 
 	#customButton{  /* style the dummy upload button */
-	  background: yellow;
-	  border: 1px solid red;
-	  border-radius: 5px;
-	  padding: 5px;
-	  display: inline-block;
-	  cursor: pointer;
-	  color: red;
+	    cursor: pointer;
+	    display: block;
+	    width: 10vw;
+	    background-color: white;
+	    height:3vw;
+	    color: black;
+	    font-family: "Arial Black";
+	    position: absolute;
+	    left:0;
+	    top: 0;
+	    font-size: 1vw;
+	    line-height:3vw;
+	    text-align: center;
+	    -webkit-transition: 500ms all;
+	    -moz-transition: 500ms all;
+	    transition: 500ms all;
+	    border-radius:10vw;
+	}
+
+	#customButton:hover {
+	    background-color: blue;
+	    color:white;
+	}
+
+	#fileName{
+		display: none;
+	}
+
+	#val {
+	    width: 20vw;
+	    height:3vw;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    font-size:1vw;
+	    line-height: 3vw;
+	    text-indent: 0;
+	    pointer-events: none;
+	    opacity:0;
 	}
 
 	#blah{
-  	width: 20vw;
-  	height: auto;
-  	position: absolute;
-  	left:18vw;
-  	top:15vw;
+	  	width: 20vw;
+	  	height: auto;
+	  	position: absolute;
+	  	left:0;
+	  	top:5vw;
   	}
+
+  	 	#title{
+		position: absolute;
+		text-align: center;
+		width: 100vw;
+		top:1.5vw;
+		width: 100%;
+		height:4vw;
+	}
+
+	#back{
+		position: fixed;
+		top:1vw;
+		left:1vw;
+		width:3vw;
+		height: auto;
+		}
+
+	#arrow{
+		width:100%;
+		}
+
+	p{
+		font-family: "Arial Light";
+		font-size: 1vw;
+		color:white;
+		font-weight: 30;
+		letter-spacing: 0.1vw;
+		padding-bottom:3.6vw;
+		}
+
+	#all_input{
+		position: absolute;
+		top:15vw;
+		left:45vw;
+		display: inline-block;
+		width:50vw;
+		height:50vw;
+	}
+
+	#labels{
+		position: absolute;
+		left:0%;
+		top:0%;
+		width: 20%;
+		display: block;
+		line-height: 0vw;
+		vertical-align: top;
+		font-family: "Arial Light";
+		font-size: 1vw;
+		letter-spacing: 0;
+	}	
+
+	form{
+		position: absolute;
+		width: 65%;
+		height:100%;
+		left:30%;
+		top:0%;
+		margin:0;
+	}
+
+	.user_input{
+		color:black;
+		text-align: left;
+		top:0%;
+		width: 100%;
+		font-family: "Arial Light";
+		font-size: 1vw;
+		letter-spacing: 0;
+	}
+
+	#Description_input{
+		padding-bottom:6vw;
+	}
+
+
+
+	#submit{
+		position: absolute;
+		top:35vw;
+		left:45vw;
+		background-color: white;
+		color:black;
+		font-family: "Arial Black";
+		font-size: 1vw;
+		font-weight: 200;
+		text-decoration: none;
+		letter-spacing: 0;
+	}
 
 	</style>
 </head>
 <body>
-<input type="file" id="fileUpload"> <!-- actual file upload button -->
-<div id="customButton">Browse</div>  <!-- dummy file upload button which can be used for styling ;) -->
-<span id="fileName"></span> <!-- the file name of the selected file will be shown here -->
-<img id="blah" src="#" alt="your image" />
+<div id="button">
+	<input type="file" id="fileUpload"> <!-- actual file upload button -->
+	<div id="customButton">Browse</div>  <!-- dummy file upload button which can be used for styling ;) -->
+	<span id="fileName"></span> <!-- the file name of the selected file will be shown here -->
+	<img id="blah" src="#" alt="your image" />
+</div>
+
+<div id="all_input">
+
+	<div id="labels">
+		<p>Object Title:</p>
+		<p>Notes:</p>
+		<p>Description:</p>
+	</div>
+
+	<form>
+	  <textarea type="text" class="user_input" id="object_name" name="object_name"></textarea><br><br>
+	  <textarea type="text" class="user_input" id="Notes" name="Notes"></textarea><br><br> 
+	  <textarea type="text" class="user_input" id="Description_input" name="Description"  wrap="hard"></textarea><br><br>
+	</form>
+
+</div>
+
+<div id="back">
+	<a href="index.html"><img id="arrow" src="home.png" alt=""></a>
+</div>
+
+<a href="third_page.html"><input type="submit" value="Submit" id="submit" ></a>
 
 <script type="text/javascript">
 document.getElementById("customButton").addEventListener("click", function(){
